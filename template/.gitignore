@@ -1,0 +1,14 @@
+# Mac
+.DS_Store
+
+# Editor
+.vscode
+*.swp
+
+# NodeJS
+node_modules
+npm-debug.log*
+
+# Compile
+dist
+views/index.*.html
