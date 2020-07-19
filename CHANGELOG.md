@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.5.0](https://github.com/Val-istar-Guo/web-template/compare/v2.4.0...v2.5.0) (2020-07-19)
+
+
+### Features
+
+* cannot get cookie in server side ([673577b](https://github.com/Val-istar-Guo/web-template/commit/673577b4366cde1c4b520724a1a9d5d2d613b432))
+
 ## 2.4.0 (2020-07-19)
 
 
