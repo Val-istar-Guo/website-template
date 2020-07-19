@@ -1,5 +1,5 @@
 import webpack from 'webpack'
-import merge from 'webpack-merge'
+import { merge } from 'webpack-merge'
 import VueSSRClientPlugin from 'vue-server-renderer/client-plugin'
 import CopyWebpackPlugin from 'copy-webpack-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
@@ -15,24 +15,26 @@ const plugins = [
     'process.env.WEB_CONTAINER': JSON.stringify('browser'),
   }),
 
-  new CopyWebpackPlugin([
-    {
-      from: './client/template.html',
-      to: 'template.html',
-    },
-    {
-      from: './client/manifest.json',
-      to: 'manifest.json',
-    },
-    {
-      from: './client/service-worker.js',
-      to: 'service-worker.js',
-    },
-    {
-      from: './node_modules/sw-toolbox/sw-toolbox.js',
-      to: 'sw-toolbox.js',
-    },
-  ]),
+  new CopyWebpackPlugin({
+    patterns: [
+      {
+        from: './client/template.html',
+        to: 'template.html',
+      },
+      {
+        from: './client/manifest.json',
+        to: 'manifest.json',
+      },
+      {
+        from: './client/service-worker.js',
+        to: 'service-worker.js',
+      },
+      {
+        from: './node_modules/sw-toolbox/sw-toolbox.js',
+        to: 'sw-toolbox.js',
+      },
+    ]
+  }),
 ]
 
 if (isProd) plugins.push(new webpack.optimize.OccurrenceOrderPlugin())
