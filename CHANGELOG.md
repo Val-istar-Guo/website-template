@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.6.0](https://github.com/Val-istar-Guo/web-template/compare/v2.5.0...v2.6.0) (2020-07-19)
+
+
+### Features
+
+* upgrade dependencies ([627af6f](https://github.com/Val-istar-Guo/web-template/commit/627af6fa2d2895001fe251f908ec9b9700fecd36))
+
 ## [2.5.0](https://github.com/Val-istar-Guo/web-template/compare/v2.4.0...v2.5.0) (2020-07-19)
 
 
