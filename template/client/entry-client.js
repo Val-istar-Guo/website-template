@@ -1,7 +1,12 @@
 // Client entry file
 import Vue from 'vue'
 import createApp from './create-app'
+import * as cookie from '@client/utils/cookie'
+import cookies from 'cookie'
 
+
+cookie.init(cookies.parse(document.cookie))
+const { app, store, router } = createApp()
 
 Vue.mixin({
   beforeRouteUpdate(to, from, next) {
@@ -11,6 +16,7 @@ Vue.mixin({
       initialData.call(this, {
         store: this.$store,
         route: to,
+        router,
       })
         .then(next)
         .catch(next)
@@ -20,7 +26,6 @@ Vue.mixin({
   },
 })
 
-const { app, store, router } = createApp()
 
 // eslint-disable-next-line no-undef
 if (window.__INITIAL_STATE__) store.replaceState(window.__INITIAL_STATE__)
@@ -35,6 +40,7 @@ router.onReady(() => {
         this.dataPromise = initialData.call(this, {
           store: this.$store,
           route: this.$route,
+          router,
         })
       }
     },
