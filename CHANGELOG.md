@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 2.4.0 (2020-07-19)
+
+
+### Features
+
+* get cookies in ssr ([6c120f4](https://github.com/Val-istar-Guo/web-template/commit/6c120f4f0d13c0e2d20b350fbcde12c5392cf9ac))
+
 ### [2.3.4](https://github.com/Val-istar-Guo/web-template/compare/v2.3.3...v2.3.4) (2019-07-20)
 
 
