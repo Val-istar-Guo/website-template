@@ -3,11 +3,12 @@ import fs from 'fs-extra'
 import { createBundleRenderer, BundleRenderer } from 'vue-server-renderer'
 import { Middleware } from 'koa'
 import { nodeEnv } from '@framework/env'
+import cookie from 'cookie'
 
 
-function renderToString(renderer, url, title = 'Web Template'): Promise<string> {
+function renderToString(renderer, url, title = 'Web Template', cookies: Record<string, string>): Promise<string> {
   return new Promise((resolve, reject) => {
-    renderer.renderToString({ url, title }, (err, html) => {
+    renderer.renderToString({ url, title, cookies }, (err, html) => {
       if (err) {
         err.status = err.code
         err.expose = nodeEnv.not.prod
@@ -51,9 +52,14 @@ export default async function ssr(): Promise<Middleware> {
     let html
 
     try {
-      html = await renderToString(renderer, ctx.url, title)
+      html = await renderToString(renderer, ctx.url, title, cookie.parse(ctx.get('cookie')))
     } catch (err) {
-      if (err.status !== 404) throw err
+      if (err.status === 302 && err.url) {
+        ctx.redirect(err.url)
+        return
+      } else if (err.status !== 404) {
+        throw err
+      }
     }
 
     if (html) ctx.body = html
