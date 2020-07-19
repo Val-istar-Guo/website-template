@@ -1,8 +1,8 @@
 mili:
-  version: 3.8.1
+  version: 3.9.1
 template:
   repository: 'npm:mili-template'
-  version: 1.3.1
+  version: 1.4.0
 answers:
   standardVersion: true
   lock: false
